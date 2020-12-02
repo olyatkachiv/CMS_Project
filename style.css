@@ -1,0 +1,21 @@
+body{padding-top:20px;}
+
+table {
+    text-transform: capitalize;
+}
+
+.dot-not-active {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-active {
+    height: 25px;
+    width: 25px;
+    background-color: #218838;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My CMS</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" id="modal" class="btn btn-primary" >
+                Add
+            </button>
+            <label for="setActive">
+                <select class="custom-select" name="setActive" id="setActive">
+                    <option value="0">1. Please select</option>
+                    <option value="active">2. Set active</option>
+                    <option value="not_active">3. Set not active</option>
+                    <option value="delete">4. Delete</option>
+                </select>
+            </label>
+            <button class="btn btn-primary" type="button" id="submitTable">
+                OK
+            </button>
+
+            <!--modal -->
+            <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="myForm">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input name="name" type="text" class="form-control" id="name" value="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Surname</label>
+                                    <input name="surname" type="text" class="form-control" id="surname" value="Surname">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input name="status" type="checkbox" class="custom-control-input" id="customSwitch">
+                                    <label class="custom-control-label" for="customSwitch">Active</label>
+                                </div>
+                                <div>
+                                    <label for="setRole">
+                                        <select class="custom-select" name="setRole" id="setRole">
+                                            <option value="0">1. Please select</option>
+                                            <option value="admin" selected>2. Admin</option>
+                                            <option value="user">3. User</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="addUser" type="button" class="btn btn-primary">Add</button>
+                            <button id="editUser" type="button" class="btn btn-primary">Edit</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--modal center -->
+            <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                            <button id="acceptAction" type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                            <button id="declineAction" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" id="checkAll">
+                                </label>
+                            </th>
+                            <th><span>Name</span></th>
+                            <th class="text-center"><span>Status</span></th>
+                            <th class="text-center"><span>Role</span></th>
+                            <th><span>Options</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="button" id="modalBottom" class="btn btn-primary">
+                Add
+            </button>
+            <label for="setActiveBottom">
+                <select class="custom-select" name="setActive" id="setActiveBottom">
+                    <option value="0">1. Please select</option>
+                    <option value="active">2. Set active</option>
+                    <option value="not_active">3. Set not active</option>
+                    <option value="delete">4. Delete</option>
+                </select>
+            </label>
+            <button class="btn btn-primary" type="button" id="submitTableBottom">
+                OK
+            </button>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
