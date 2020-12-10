@@ -57,6 +57,7 @@ $('#submitTable,#submitTableBottom').click(function () {
 $('#modal, #modalBottom').click(function () {
     let $add = $('#addUser');
     let $edit = $('#editUser');
+    $(this).showBlankForm();
     $add.css('display','inline-block');
     $edit.css('display','none');
     $('#modalForm').modal();
@@ -141,7 +142,7 @@ $.fn.extend({
                 let params = {
                     action: 'delete',
                     id: id
-                }
+                };
                 $(this).showMessage('Confirm deleting.');
                 $('#acceptAction').click( {value: params},function () {
                     $(this).request(params);
@@ -176,6 +177,7 @@ $.fn.extend({
         }
     },
     showEditingUser: function(id) {
+        $('#exampleModalLabel').html('Edit user');
         let selector = $('#'+id).children();
         $('#name').val($('#'+id+' .name').html());
         $('#surname').val($('#'+id+' .surname').html());
@@ -183,7 +185,28 @@ $.fn.extend({
             $('#customSwitch').prop('checked',true);
         }
         else $('#customSwitch').prop('checked',false);
+        $(this).renderSelectMenu(false);
         $('#setRole').val(selector.eq(3).html().toLowerCase());
-        //TODO parse name and surname
+    },
+    showBlankForm: function() {
+        $('#exampleModalLabel').html('Add user');
+        $('#name').val('')
+        $('#surname').val('');
+        $('#customSwitch').prop('checked',false);
+        $(this).renderSelectMenu(true);
+        $('#setRole').val('0');
+    },
+    renderSelectMenu: function (state) {
+        let role = $('#setRole');
+        role.empty();
+        if (state) {
+            role.append('<option value="0" selected>1. Please select</option> + ' +
+                '<option value="admin">2. Admin</option> + ' +
+                '<option value="user">3. User</option>');
+        }
+        else {
+            role.append('<option value="admin">1. Admin</option> + ' +
+                '<option value="user">2. User</option>');
+        }
     }
 })
