@@ -2,13 +2,15 @@
 
 class MyController {
 
-    private PDO $conn;
+    private $conn;
 
     public function __construct()
     {
-        $dsn = 'mysql:dbname=test;host=localhost';
-        $user = 'root';
-        $pass = 'root';
+        $host = "localhost";
+        $dbname = "id15570213_test";
+        $user = "id15570213_olyatkachiv";
+        $pass = 's$4CH?G_uE@Q<ok_';
+        $dsn = "mysql:host=$host;dbname=$dbname";
         try {
         $this->conn = new PDO($dsn, $user, $pass);
         }
