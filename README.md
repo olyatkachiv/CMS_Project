@@ -37,3 +37,5 @@ test_users.sql # Sample database script for test users.
 - AJAX requests (script.js) communicate with source.php for database operations.
 - jQuery modal dialogs for adding, editing, and deleting users.
 - Bulk operations via checkboxes and dropdown actions.
+
+📌 **Author**: _Olha Tkachiv_  
